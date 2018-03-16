@@ -9,7 +9,7 @@ public class main {
 
     public static void main(String[] args) {
     	//the time it waits between each frame pull (update)
-    	int sleepTime = 100;
+    	int sleepTime = 5000;
     	
     	boolean shouldRun = true;
     	LeapTestGui gui = new LeapTestGui();
