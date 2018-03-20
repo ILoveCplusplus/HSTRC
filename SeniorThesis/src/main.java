@@ -1,4 +1,9 @@
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import org.firmata4j.Pin;
+import org.firmata4j.Pin.Mode;
+import org.firmata4j.firmata.FirmataDevice;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Finger;
@@ -10,20 +15,47 @@ public class main {
     public static void main(String[] args) {
     	//the time it waits between each frame pull (update)
     	int sleepTime = 5000;
-    	
+    	IRHelper helper = new IRHelper();
     	boolean shouldRun = true;
     	LeapTestGui gui = new LeapTestGui();
     	gui.setVisible(true);
     	Controller leap = new Controller();
+    	FirmataDevice myArduino = helper.getDevice();
+    	setOnExit(helper);
+    
     	while(shouldRun && gui != null && gui.isVisible() && !leap.isConnected())
     	{
-    		System.out.println("waiting for a leap connection.");
+    		
+    		if(myArduino == null)
+    		{
+    			log("device not connected");
+    		}
+    		else
+    		{
+    			try {
+					for(int i = 0; i < 10000; i++)
+					{
+						if(i%100 == 0)
+						{
+							log(Integer.toString(i));
+						}
+						helper.setPin(14,i, 20);
+					}
+    				
+					
+					
+				} catch (IllegalArgumentException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}
+    		log("waiting for a leap connection.");
     		mySleep(250);
     	}
     	//let us know if the leap is connected.
     	if(leap.isConnected())
     	{
-    		System.out.println("Leap device seen!");
+    		log("Leap device seen!");
     	}
     	//while we have a leap connection update the gui with information.
     	while(leap.isConnected())
@@ -83,5 +115,14 @@ public class main {
 	private static void log(String s)
 	{
 		 System.out.println(s);
+	}
+	
+	private static void setOnExit(final IRHelper helper)
+	{
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable(){
+			public void run(){
+				helper.exit();
+			}
+		}));
 	}
 }
