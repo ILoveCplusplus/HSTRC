@@ -77,7 +77,15 @@ public class IRHelper {
 				pin.setMode(Mode.OUTPUT);
 			}
 			//setting the value
+<<<<<<< HEAD
 			pin.setValue(data);
+=======
+<<<<<<< HEAD
+			pin.setValue(data);
+=======
+			pin.setValue(1);
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
 			mySleep(time);
 			pin.setValue(0);
 				
@@ -87,6 +95,10 @@ public class IRHelper {
 		}
 			
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
 	public void sendDataArray(long[] data)
 	{
 		log("sending data array");
@@ -102,6 +114,11 @@ public class IRHelper {
 		}
 		log("data array sent");
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
 	private static void log(String s)
 	{
 		 System.out.println(s);
@@ -120,12 +137,24 @@ public class IRHelper {
 	private static void mySleep(int i) {
     	// TODO Auto-generated method stub
     	try {
+<<<<<<< HEAD
     		TimeUnit.MICROSECONDS.sleep(i);
+=======
+<<<<<<< HEAD
+    		TimeUnit.MICROSECONDS.sleep(i);
+=======
+    		TimeUnit.MILLISECONDS.sleep(i);
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
     	} catch (InterruptedException e) {
     		// TODO Auto-generated catch block
     		e.printStackTrace();
     	}
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
 	public long[] getDecimalArrayFromHex(String hexData)
 	{
 		String hexDataArray[] = hexData.split(" ");
@@ -133,11 +162,20 @@ public class IRHelper {
     	int i = 0;
     	for(String h : hexDataArray)
     	{
+<<<<<<< HEAD
     		returnArray[i] = (long) Integer.parseInt(h, 16);
+=======
+    		returnArray[i] = hexConverter.hexToDecimal(h);
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
     		i++;
     	}
     	return returnArray;
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
+>>>>>>> 744bf65a5278106161ed468d17adfa156524b14e
 	public void exit()
 	{
 		try {
