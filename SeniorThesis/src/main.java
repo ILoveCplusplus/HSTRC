@@ -22,9 +22,13 @@ public class main {
     	Controller leap = new Controller();
     	FirmataDevice myArduino = helper.getDevice();
     	setOnExit(helper);
+<<<<<<< HEAD
     	String hexData = "0000 006D 0022 0002 0157 00AC 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0689 0157 0056 0015 0E94";
     	long[] decArr = helper.getDecimalArrayFromHex(hexData);
     	
+=======
+    
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
     	while(shouldRun && gui != null && gui.isVisible() && !leap.isConnected())
     	{
     		
@@ -34,7 +38,26 @@ public class main {
     		}
     		else
     		{
+<<<<<<< HEAD
     			helper.sendDataArray(decArr);
+=======
+    			try {
+					for(int i = 0; i < 10000; i++)
+					{
+						if(i%100 == 0)
+						{
+							log(Integer.toString(i));
+						}
+						helper.setPin(14,i, 20);
+					}
+    				
+					
+					
+				} catch (IllegalArgumentException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
     		}
     		log("waiting for a leap connection.");
     		mySleep(250);

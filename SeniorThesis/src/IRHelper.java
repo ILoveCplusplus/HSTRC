@@ -77,7 +77,11 @@ public class IRHelper {
 				pin.setMode(Mode.OUTPUT);
 			}
 			//setting the value
+<<<<<<< HEAD
 			pin.setValue(data);
+=======
+			pin.setValue(1);
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
 			mySleep(time);
 			pin.setValue(0);
 				
@@ -87,6 +91,7 @@ public class IRHelper {
 		}
 			
 	}
+<<<<<<< HEAD
 	public void sendDataArray(long[] data)
 	{
 		log("sending data array");
@@ -102,6 +107,8 @@ public class IRHelper {
 		}
 		log("data array sent");
 	}
+=======
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
 	private static void log(String s)
 	{
 		 System.out.println(s);
@@ -120,12 +127,17 @@ public class IRHelper {
 	private static void mySleep(int i) {
     	// TODO Auto-generated method stub
     	try {
+<<<<<<< HEAD
     		TimeUnit.MICROSECONDS.sleep(i);
+=======
+    		TimeUnit.MILLISECONDS.sleep(i);
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
     	} catch (InterruptedException e) {
     		// TODO Auto-generated catch block
     		e.printStackTrace();
     	}
     }
+<<<<<<< HEAD
 	public long[] getDecimalArrayFromHex(String hexData)
 	{
 		String hexDataArray[] = hexData.split(" ");
@@ -138,6 +150,8 @@ public class IRHelper {
     	}
     	return returnArray;
 	}
+=======
+>>>>>>> dd0135bfd1723a994721972496d8d9ed5051ea47
 	public void exit()
 	{
 		try {
