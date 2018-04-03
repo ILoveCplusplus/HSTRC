@@ -1,4 +1,9 @@
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import org.firmata4j.Pin;
+import org.firmata4j.Pin.Mode;
+import org.firmata4j.firmata.FirmataDevice;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Finger;
@@ -10,20 +15,34 @@ public class main {
     public static void main(String[] args) {
     	//the time it waits between each frame pull (update)
     	int sleepTime = 5000;
-    	
+    	IRHelper helper = new IRHelper();
     	boolean shouldRun = true;
     	LeapTestGui gui = new LeapTestGui();
     	gui.setVisible(true);
     	Controller leap = new Controller();
+    	FirmataDevice myArduino = helper.getDevice();
+    	setOnExit(helper);
+    	String hexData = "0000 006D 0022 0002 0157 00AC 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0689 0157 0056 0015 0E94";
+    	long[] decArr = helper.getDecimalArrayFromHex(hexData);
+    	
     	while(shouldRun && gui != null && gui.isVisible() && !leap.isConnected())
     	{
-    		System.out.println("waiting for a leap connection.");
+    		
+    		if(myArduino == null)
+    		{
+    			log("device not connected");
+    		}
+    		else
+    		{
+    			helper.sendDataArray(decArr);
+    		}
+    		log("waiting for a leap connection.");
     		mySleep(250);
     	}
     	//let us know if the leap is connected.
     	if(leap.isConnected())
     	{
-    		System.out.println("Leap device seen!");
+    		log("Leap device seen!");
     	}
     	//while we have a leap connection update the gui with information.
     	while(leap.isConnected())
@@ -83,5 +102,14 @@ public class main {
 	private static void log(String s)
 	{
 		 System.out.println(s);
+	}
+	
+	private static void setOnExit(final IRHelper helper)
+	{
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable(){
+			public void run(){
+				helper.exit();
+			}
+		}));
 	}
 }
