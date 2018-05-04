@@ -1,6 +1,3 @@
-import gnu.io.*;
-
-import java.util.Scanner;
 
 import arduino.*;
 
