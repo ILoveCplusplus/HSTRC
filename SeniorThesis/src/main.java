@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import gnu.io.NoSuchPortException;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
@@ -8,6 +9,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
+=======
+import java.io.IOException;
+>>>>>>> b586dc3efa9dcfc26d2bf1246bdfe3339bbb30e6
 import java.util.concurrent.TimeUnit;
 
 import org.firmata4j.Pin;
@@ -26,6 +30,7 @@ public class main {
 
     public static void main(String[] args) throws IOException {
     	//the time it waits between each frame pull (update)
+<<<<<<< HEAD
     	populateMap();
     	int sleepTime = 1000;
     	
@@ -45,6 +50,31 @@ public class main {
     	while(shouldRun && gui != null && gui.isVisible() && !leap.isConnected())
     	{
     		
+=======
+    	int sleepTime = 5000;
+    	IRHelper helper = new IRHelper();
+    	boolean shouldRun = true;
+    	LeapTestGui gui = new LeapTestGui();
+    	gui.setVisible(true);
+    	Controller leap = new Controller();
+    	FirmataDevice myArduino = helper.getDevice();
+    	setOnExit(helper);
+<<<<<<< HEAD
+    	String hexData = "0000 006D 0022 0002 0157 00AC 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0041 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0016 0015 0041 0015 0016 0015 0041 0015 0041 0015 0041 0015 0041 0015 0689 0157 0056 0015 0E94";
+    	long[] decArr = helper.getDecimalArrayFromHex(hexData);
+    	
+    	while(shouldRun && gui != null && gui.isVisible() && !leap.isConnected())
+    	{
+    		
+    		if(myArduino == null)
+    		{
+    			log("device not connected");
+    		}
+    		else
+    		{
+    			helper.sendDataArray(decArr);
+    		}
+>>>>>>> b586dc3efa9dcfc26d2bf1246bdfe3339bbb30e6
     		log("waiting for a leap connection.");
     		mySleep(250);
     	}
@@ -188,6 +218,7 @@ public class main {
 	{
 		 System.out.println(s);
 	}
+<<<<<<< HEAD
 	private static void printBArray(boolean[] data) {
 		// TODO Auto-generated method stub
 		for(boolean b : data)
@@ -203,4 +234,15 @@ public class main {
 		}
 	}
 	
+=======
+	
+	private static void setOnExit(final IRHelper helper)
+	{
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable(){
+			public void run(){
+				helper.exit();
+			}
+		}));
+	}
+>>>>>>> b586dc3efa9dcfc26d2bf1246bdfe3339bbb30e6
 }
