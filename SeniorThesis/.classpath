@@ -11,14 +11,29 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hayden/eclipse-workspace/SeniorThesis/LeapLibrary/LeapJava.jar">
+	<classpathentry kind="lib" path="C:/Users/lattepanda/Documents/LeapLibrary/LeapJava.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Hayden/eclipse-workspace/SeniorThesis/LeapLibrary/x64"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SeniorThesis/LeapLibrary/x64"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/lattepanda/Documents/mfz-rxtx-2.2-20081207-win-x64/RXTXcomm.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/lattepanda/Documents/mfz-rxtx-2.2-20081207-win-x64"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/lattepanda/Documents/Java-Arduino-Communication-Library-master/arduino.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/lattepanda/Documents/Java-Arduino-Communication-Library-master"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/lattepanda/Documents/Java-Arduino-Communication-Library-master/jSerialComm-1.3.11.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/lattepanda/Documents/Java-Arduino-Communication-Library-master"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
