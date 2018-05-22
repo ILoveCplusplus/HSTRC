@@ -73,7 +73,11 @@ public class main {
     		}
     		else
     		{
+<<<<<<< HEAD
     			//log("no hand, sleeping for "+ (sleepTime /1000) + "second(s)");
+=======
+    			log("no hand, sleeping for "+ (sleepTime /1000) + "second(s)");
+>>>>>>> f51c82cad0fc0f713bc461d7c533cad74f1036a5
     			mySleep(sleepTime);
     		}
     		
@@ -84,6 +88,7 @@ public class main {
 		// TODO Auto-generated method stub
 		signalMap = new HashMap<String,Character>();
 		sleepMap = new HashMap<String, Integer>();
+<<<<<<< HEAD
 		//power on/off 
 		String onOffCode = "ttttt";
 		signalMap.put(onOffCode, 'a');
@@ -93,6 +98,12 @@ public class main {
 		String offCode = "ftttt";
 		signalMap.put(offCode, 'z');
 		sleepMap.put(offCode, 2000);
+=======
+		//power on/off
+		String onOffCode = "ttttt";
+		signalMap.put(onOffCode, 'a');
+		sleepMap.put(onOffCode, 5000);
+>>>>>>> f51c82cad0fc0f713bc461d7c533cad74f1036a5
 		
 		//volume down
 		String volumeDownCode = "fttff";
@@ -119,6 +130,7 @@ public class main {
 		String inputCode = "ttfft";
 		signalMap.put(inputCode, 'f');
 		sleepMap.put(inputCode, 700);
+<<<<<<< HEAD
 		
 		//channel up
 		String channelUpCode = "ftttf";
@@ -129,6 +141,8 @@ public class main {
 		String channelDownCode = "tttff";
 		signalMap.put(channelDownCode, 'h');
 		sleepMap.put(channelDownCode, 400);
+=======
+>>>>>>> f51c82cad0fc0f713bc461d7c533cad74f1036a5
 	}
 
 	//used to update the information on the gui

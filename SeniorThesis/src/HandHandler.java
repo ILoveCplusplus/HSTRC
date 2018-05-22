@@ -72,6 +72,7 @@ public class HandHandler {
 		Set<Entry<String, Integer>> entrySet = dataCountMap.entrySet();
 		for(Entry<String, Integer> entry : entrySet)
 		{
+<<<<<<< HEAD
 			//log("test");
 			if(entry.getValue() >= frequency)
 			{
@@ -79,6 +80,15 @@ public class HandHandler {
 				
 				topElement = entry.getKey();
 				log("hand seen is: " + topElement);
+=======
+			log("test");
+			if(entry.getValue() >= frequency)
+			{
+				log("found new top elem");
+				
+				topElement = entry.getKey();
+				log("topElement is: " + topElement);
+>>>>>>> f51c82cad0fc0f713bc461d7c533cad74f1036a5
 				frequency = entry.getValue();
 			}
 		}
